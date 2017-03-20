@@ -39,7 +39,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(530, 20);
             this.textBox1.TabIndex = 0;
-           // this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // checkedListBox1
             // 
@@ -57,6 +56,7 @@
             this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "lblUpdatingAppName";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
             // 

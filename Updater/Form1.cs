@@ -17,7 +17,7 @@ namespace Updater
 
     public partial class Form1 : Form
     {
-        static string ConnStr = "Data Source=etrav-hack;Initial Catalog=images;Persist Security Info=True;User ID=Application;Password=noitacilppa";
+        static string ConnStr = "Data Source=etrav-hack;Initial Catalog=images;Persist Security Info=True;User ID=Application;Password=yourpassword";
 
         
 
@@ -25,15 +25,15 @@ namespace Updater
 
         {
             InitializeComponent();
-            //CallingApp = null;
+            //string CallingApp = null;
             //tester
-            //getupdateApp("QualityPlan", "QualityPlanNET.frx", null);
+            //updater.getupdateApp("QualityPlan", "QualityPlanNET.frx", null);
 
         }
 
         public class updater : IDisposable
         {
-            string CallingApp = null; //Fortesting
+            //string CallingApp = null; //Fortesting
             string CallingFormfrx = null;
             FileStream DevEXlib = null; //Holds collection of DevExpress dll's
             string DVXName;
@@ -49,7 +49,7 @@ namespace Updater
             public void getupdateApp(string CallingAppN, string CallingformN, string CallingVerN) //Goes and gets Updated application and Fast Report frx files as well as Devexpress dll's
             {
                 //textBox1.Text = CallingAppN + CallingformN + CallingVerN;
-                CallingApp = CallingAppN; CallingFormfrx = CallingformN;
+                string CallingApp = CallingAppN; CallingFormfrx = CallingformN;
                 System.IO.FileStream fP;                          // Writes the BLOB to a file (*.bmp).
                 BinaryWriter bw;                        // Streams the BLOB to the FileStream object.
                 const int bufferSize = 1000;                   // Size of the BLOB buffer.
@@ -178,7 +178,7 @@ namespace Updater
 
                             while (sqlQueryResult.Read())
                             {
-                                //fP = new FileStream(sqlQueryResult.ToString(), FileMode.OpenOrCreate, FileAccess.Write);
+                                
                                 try
                                 {
 
@@ -211,8 +211,7 @@ namespace Updater
                                 // Close the output file.
                                 bw.Close();
                                 fP.Close();
-                                //checkedListBox1.SetItemChecked(2, true);
-                                //unpack zip
+                                
                             }
                     }
                 }
@@ -230,7 +229,7 @@ namespace Updater
             public void closerunningapp(string app)
             {
                 app = app.ToLower();
-                //Process myprc = GetaProcess(app); myprc.Kill();
+                
                 Process[] processes = Process.GetProcesses();
                 try
                 {
@@ -247,7 +246,7 @@ namespace Updater
                 }
                 catch (System.NullReferenceException)
                 {
-                    //MessageBox.Show("No instances of" + app + "running.");
+                    MessageBox.Show("No instances of" + app + "running.");
                     //checkedListBox1.Items.Add(string.Format("No instances of{0}running.", app));
                     //checkedListBox1.Update();
                 }
@@ -267,6 +266,11 @@ namespace Updater
             {
                 MessageBox.Show(((Process)sender).ProcessName + " process has exited!");
             }
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }
